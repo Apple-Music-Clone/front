@@ -1,0 +1,141 @@
+.pg-app {
+  color: var(--theme-neutralDarkest);
+}
+
+html {
+  font-family: unquote($global-body-font);
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--theme-linkMedium);
+}
+
+p {
+  margin-bottom: 12px;
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+h1,
+.xl {
+  font-family: $global-headings-font;
+  font-size: $font-size-xl;
+}
+
+h2,
+.lg {
+  font-family: $global-headings-font;
+  font-size: $font-size-lg;
+}
+
+h3,
+.md {
+  font-family: $global-headings-font;
+  font-size: $font-size-md;
+}
+
+h4,
+.sm {
+  font-family: $global-headings-font;
+  font-size: $font-size-sm;
+}
+
+h5,
+.xs {
+  font-family: $global-headings-font;
+  font-size: $font-size-xs;
+}
+
+.text--xxxs,
+.text--xxs,
+.text--xs,
+.text--sm,
+.text--md,
+.text--lg,
+.text--xl,
+.text--xxl,
+.text--xxxl,
+.text--display {
+  &-bold {
+    font-weight: bold;
+  }
+}
+
+.text--xxxs {
+  font-size: $font-size-xxxs;
+}
+
+.text--xxs {
+  font-size: $font-size-xxs;
+}
+
+.text--xs {
+  font-size: $font-size-xs;
+}
+
+.text--sm {
+  font-size: $font-size-sm;
+}
+
+.text--md {
+  font-size: $font-size-md;
+}
+
+.text--lg {
+  font-size: $font-size-lg;
+}
+
+.text--xl {
+  font-size: $font-size-xl;
+}
+
+.text--xxl {
+  font-size: $font-size-xxl;
+}
+
+.text--xxxl {
+  font-size: $font-size-xxxl;
+}
+
+.text--display {
+  font-size: $font-size-display;
+}
+
+@include mq($from: tablet-landscape) {
+  h1,
+  .alpha {
+    font-size: $font-size-xl;
+  }
+  h2,
+  .beta {
+    font-size: $font-size-lg;
+  }
+  h3,
+  .gamma {
+    font-size: $font-size-md;
+  }
+  h4,
+  .delta {
+    font-size: $font-size-sm;
+  }
+  h5,
+  .epsilon {
+    font-size: $font-size-xs;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: unquote($global-headings-font);
+  font-weight: bold;
+}

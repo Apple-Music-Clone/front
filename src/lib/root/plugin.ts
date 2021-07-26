@@ -1,8 +1,8 @@
 import * as coreComponents from "../core/components/index";
 import * as sharedComponents from "../shared/components/index";
 import { PluginObject } from "vue/types/umd";
-import { createObject } from "./AppleMusicClone.ui";
-import { ThemeList, ThemeManager } from "./theme-manager";
+import { createObject, ObjectOptions } from "./AppleMusicClone.ui";
+import { Theme, ThemeList, ThemeManager } from "./theme-manager";
 
 export interface PluginOptions {
   themes: ThemeList;
@@ -27,3 +27,9 @@ export const appleMusicCloneUI: PluginObject<PluginOptions> = {
     }
   },
 };
+
+declare module "vue/types/vue" {
+  interface Vue {
+    $amc: ObjectOptions & { themeColors: Theme };
+  }
+}

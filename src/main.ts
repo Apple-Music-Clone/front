@@ -4,6 +4,7 @@ import { appleMusicCloneUI } from "./lib/root/plugin";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
+import "@/lib/shared/styles/main.scss";
 
 Vue.config.productionTip = false;
 Vue.use(appleMusicCloneUI);

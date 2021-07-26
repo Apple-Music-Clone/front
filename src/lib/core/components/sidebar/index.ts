@@ -1,0 +1,1 @@
+export { default as AmcSidebar } from './sidebar.vue';

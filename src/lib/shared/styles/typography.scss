@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Ubuntu:ital,wght@0,400;1,700&display=swap");
+
+$global-body-font: "Quicksand, sans-serif";
+$global-headings-font: 'Ubuntu, "Times New Roman", serif';
+$default-font-size: 14px;
+
+// heading font sizes
+$font-size-display: 80px;
+$font-size-xxxl: 64px;
+$font-size-xxl: 48px;
+$font-size-xl: 42px;
+$font-size-lg: 28px;
+$font-size-md: 22px;
+$font-size-sm: 18px;
+$font-size-xs: 16px;
+$font-size-xxs: 14px;
+$font-size-xxxs: 12px;
+
+@function line-height($font-size, $line-height: "auto", $modifier: 0) {
+  @if ($line-height == "auto") {
+    // Define how many grid lines each text line should span
+    $lines: ceil($font-size / 6px) + $modifier + 1;
+    $line-height: $lines * 6px;
+
+    @return ($line-height / $font-size);
+  } @else {
+    @if (
+      type-of($line-height) ==
+        number or
+        $line-height ==
+        "inherit" or
+        $line-height ==
+        "normal"
+    ) {
+      @return $line-height;
+    } @else if ($line-height != "none" and $line-height != false) {
+      @error "D’oh! `#{$line-height}` is not a valid value for `$line-height`.";
+    }
+  }
+}
+
+@mixin font-size(
+  $font-size,
+  $line-height: auto,
+  $modifier: 0,
+  $important: false
+) {
+  @if (type-of($font-size) == number) {
+    @if (unit($font-size) != "px") {
+      @error "`#{$font-size}` needs to be a pixel value.";
+    }
+  } @else {
+    @error "`#{$font-size}` needs to be a number.";
+  }
+
+  @if ($important == true) {
+    $important: "!important";
+  } @else if ($important == false) {
+    $important: null;
+  } @else {
+    @error "`#{$important}` needs to be `true` or `false`.";
+  }
+
+  font-size: ($font-size / $default-font-size) * 1rem $important;
+  line-height: line-height($font-size, $line-height, $modifier);
+}
+
+.text--bold {
+  font-weight: 700 !important;
+}
+
+// Text Align
+.text--left {
+  text-align: left !important;
+}
+.text--center {
+  text-align: center !important;
+}
+.text--justify {
+  text-align: justify !important;
+}
+.text--right {
+  text-align: right !important;
+}
