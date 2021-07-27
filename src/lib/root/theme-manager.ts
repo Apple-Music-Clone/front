@@ -18,10 +18,6 @@ export class ThemeManager {
     this.themes = Object.assign({}, { isDark: false }, this.themes ?? {});
     this.themes.dark = Object.assign({}, darkTheme, this.themes.dark ?? {});
     this.themes.light = Object.assign({}, lightTheme, this.themes.light ?? {});
-
-    console.log(this.themes);
-
-    console.log(darkTheme);
   }
 
   public register(): void {

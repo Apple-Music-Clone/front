@@ -3,10 +3,15 @@
 }
 
 html {
-  font-family: unquote($global-body-font);
+  font-family: -apple-system,BlinkMacSystemFont,"Apple Color Emoji","SF Pro","SF Pro Icons","Helvetica Neue",Helvetica,Arial,sans-serif;
 
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-size: 13px;
+  color: var(--systemPrimary);
 }
 
 a {

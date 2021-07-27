@@ -1,14 +1,14 @@
 <template>
-  <div :class="[themeClass, 'c-sidebar']">
+  <div class="c-sidebar">
     <div class="c-sidebar__icon">
       <img
-        :src="require('../../../../assets/apple-music-logo-black.svg')"
+        :src="require(`../../../../assets/${icon}`)"
         alt="Logo Apple Music Clone"
       />
     </div>
 
     <div class="c-sidebar__search">
-      <input type="search" />
+      <input type="search" placeholder="Search"/>
     </div>
 
     <div class="c-sidebar__items">
@@ -17,16 +17,25 @@
         v-for="(item, index) in items"
         :key="index"
       >
-        <div class="c-sidebar__items-item-icon"></div>
+        <div class="c-sidebar__items-item-icon">
+          <img
+            :src="require(`@/assets/icons/${item.icon}.svg`)"
+            :alt="item.title"
+          />
+        </div>
         <p class="c-sidebar__items-item-text">{{ item.title }}</p>
       </div>
     </div>
 
     <div class="c-sidebar__button">
       <div class="c-sidebar__button-content">
-        <div class="c-sidebar__button-content-icon"></div>
+        <div class="c-sidebar__button-content-icon">
+          <img :src="require('@/assets/icons/music.svg')" alt="Music" />
+        </div>
         <p class="c-sidebar__button-content-text">Open in iTunes</p>
-        <div class="c-sidebar__button-content-suffix-icon"></div>
+        <div class="c-sidebar__button-content-suffix-icon">
+          <img :src="require('@/assets/icons/share.svg')" alt="Share" />
+        </div>
       </div>
     </div>
   </div>
@@ -40,6 +49,7 @@
   width: 260px;
   height: 100vh;
   background: var(--theme-background);
+  border-right: 1px solid #3c3c3c;
 
   @include mq($until: tablet-portrait) {
     display: none;
@@ -49,7 +59,7 @@
     padding: 0 25px;
     > img {
       width: 83px;
-      margin: 18px 0;
+      margin: 17px 0 18px 5px;
 
       &:hover {
         cursor: pointer;
@@ -59,7 +69,20 @@
 
   &__search {
     margin-bottom: var(--spacing-2);
+    margin-top: 8px;
     padding: 0 25px;
+
+    > input {
+      background: #1f1f1f;
+      height: 32px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 4px;
+      outline: none;
+
+      &:focus {
+        box-shadow: 0 0 0 4px rgba(250, 35, 59, 0.6);
+      }
+    }
   }
 
   &__items {
@@ -67,28 +90,54 @@
 
     &-item {
       padding: 3px;
+      display: flex;
+      align-items: center;
 
       &:hover {
-        background: blue;
         cursor: pointer;
+      }
+
+      &-icon {
+        margin-right: 6px;
+        color: #fa2d48;
       }
 
       &-text {
         margin: 0;
+        color: #ffffffd9;
+        font-size: 15px;
+        line-height: 1.46667;
+        font-weight: 400;
+        letter-spacing: 0;
       }
     }
   }
 
   &__button {
     margin: 0 25px;
-    border-top: 1px solid black;
-    cursor: pointer;
+    border-top: 1px solid #3c3c3c;
 
     &-content {
-      padding: 12px 0;
+      margin-top: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      &-icon {
+        margin-right: 6px;
+      }
+
+      &-suffix-icon {
+        width: 9px;
+        height: 9px;
+        margin-bottom: 6px;
+        margin-left: 6px;
+      }
 
       &-text {
         margin: 0;
+        color: #ffffff8c;
+        font-size: 13px;
       }
     }
   }
@@ -96,11 +145,20 @@
 </style>
 
 <script lang="ts">
-import { Component, Mixins, Prop } from "vue-property-decorator";
-import { Themeable } from "@/lib/shared/mixins";
+import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component
-export default class AmcSidebar extends Mixins(Themeable) {
+export default class AmcSidebar extends Vue {
   @Prop() public items!: any[];
+
+  public icon!: string;
+
+  public created(): void {
+    if (this.$amc.theme.themes.isDark) {
+      this.icon = "apple-music-logo-gray.svg";
+    } else {
+      this.icon = "apple-music-logo-black.svg";
+    }
+  }
 }
 </script>

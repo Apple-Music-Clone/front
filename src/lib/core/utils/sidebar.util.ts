@@ -1,5 +1,5 @@
 export const sidebarMenu = [
-  { icon: "", title: "Listen Now" },
-  { icon: "", title: "Browse" },
-  { icon: "", title: "Radio" },
+  { icon: "play", title: "Listen Now" },
+  { icon: "browse", title: "Browse" },
+  { icon: "radio", title: "Radio" },
 ];
