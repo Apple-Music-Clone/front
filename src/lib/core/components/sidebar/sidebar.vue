@@ -8,7 +8,7 @@
     </div>
 
     <div class="c-sidebar__search">
-      <input type="search" placeholder="Search"/>
+      <input type="search" placeholder="Search" />
     </div>
 
     <div class="c-sidebar__items">
@@ -48,7 +48,7 @@
 .c-sidebar {
   width: 260px;
   height: 100vh;
-  background: var(--theme-background);
+  background: var(--theme-sidebar);
   border-right: 1px solid #3c3c3c;
 
   @include mq($until: tablet-portrait) {
