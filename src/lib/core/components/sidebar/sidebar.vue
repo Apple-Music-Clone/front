@@ -49,7 +49,9 @@
   width: 260px;
   height: 100vh;
   background: var(--theme-sidebar);
-  border-right: 1px solid #3c3c3c;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: var(--theme-sidebarBorderRule);
 
   @include mq($until: tablet-portrait) {
     display: none;
@@ -73,14 +75,22 @@
     padding: 0 25px;
 
     > input {
-      background: #1f1f1f;
+      background: var(--theme-pageBG);
       height: 32px;
-      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-width: 1px;
+      border-style: solid;
+      border-color: var(--theme-searchBarBorderColor);
       border-radius: 4px;
       outline: none;
+      color: var(--theme-systemPrimaryVibrantText);
+      font-size: 12px;
+      line-height: 1.25;
+      font-weight: 400;
+      letter-spacing: 0;
+      width: 100%;
 
       &:focus {
-        box-shadow: 0 0 0 4px rgba(250, 35, 59, 0.6);
+        box-shadow: 0 0 0 4px var(--theme-primaryColorRgb);
       }
     }
   }
@@ -99,12 +109,12 @@
 
       &-icon {
         margin-right: 6px;
-        color: #fa2d48;
+        color: var(--theme-primaryColor);
       }
 
       &-text {
         margin: 0;
-        color: #ffffffd9;
+        color: var(--theme-systemPrimary);
         font-size: 15px;
         line-height: 1.46667;
         font-weight: 400;
@@ -115,7 +125,9 @@
 
   &__button {
     margin: 0 25px;
-    border-top: 1px solid #3c3c3c;
+    border-top-width: 0.5px;
+    border-top-style: solid;
+    border-top-color: var(--theme-labelDivider);
 
     &-content {
       margin-top: 12px;
@@ -136,7 +148,7 @@
 
       &-text {
         margin: 0;
-        color: #ffffff8c;
+        color: var(--theme-systemSecondary);
         font-size: 13px;
       }
     }

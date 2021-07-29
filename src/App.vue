@@ -1,18 +1,22 @@
 <template>
   <div :class="[themeClass, 'c-app']">
     <amc-sidebar :items="menu"></amc-sidebar>
-    <router-view class="c-app__router"></router-view>
+    <div class="c-app__content">
+    <amc-toolbar class="c-app__content-toolbar"></amc-toolbar>
+    <router-view class="c-app__content-router"></router-view>
+    </div>
   </div>
 </template>
 
 <style lang="scss">
 .c-app {
   display: flex;
+  background: var(--theme-pageBG);
 
-  &__router {
-    width: 100%;
+  &__content {
     flex: 1;
   }
+
 }
 </style>
 
