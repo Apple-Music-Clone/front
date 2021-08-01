@@ -4,23 +4,32 @@
       <div class="c-footer__infos-copyright">
         <p class="c-footer__infos-copyright-text">
           Copyright © 2021
-          <a href="https://support.apple.com/en-us/HT204881">Apple Inc.</a> All
-          rights reserved.
+          <a href="https://support.apple.com/en-us/HT204881" target="_blank"
+            >Apple Inc.</a
+          >
+          All rights reserved.
         </p>
       </div>
-      <div class="c-footer__infos-links" v-if="links && links.length > 0">
-        <a
+      <ul class="c-footer__infos-links" v-if="links && links.length > 0">
+        <li
           class="c-footer__infos-links-item"
           v-for="(link, index) of links"
           :key="index"
-          :href="link.url"
         >
-          {{ link.name }}</a
-        >
-      </div>
+          <a
+            class="c-footer__infos-links-item-link"
+            :href="link.url"
+            target="_blank"
+          >
+            {{ link.name }}</a
+          >
+        </li>
+      </ul>
     </div>
     <div class="c-footer__country">
-      <a href="#" class="c-footer__country-text">United States</a>
+      <a href="#" target="_blank" class="c-footer__country-text"
+        >United States</a
+      >
     </div>
   </div>
 </template>
@@ -55,23 +64,33 @@
     }
 
     &-links {
+      display: flex;
+      list-style-type: none;
+
       &-item {
-        color: var(--theme-systemPrimary);
-        padding-right: 10px;
+        &-link {
+          color: var(--theme-systemPrimary);
+          padding-right: 10px;
 
-        &:hover {
-          color: var(--theme-primaryColor);
-          text-decoration: underline;
-          cursor: pointer;
+          &:hover {
+            color: var(--theme-primaryColor);
+            text-decoration: underline;
+            cursor: pointer;
+          }
+
+          &::after {
+            height: 100%;
+            content: "";
+            border-inline-start: 1px solid var(--theme-systemQuaternary);
+            margin-left: 10px;
+          }
+
+          /*  &:last-child {
+            &::after {
+              border-inline-start: none;
+            }
+          } */
         }
-
-        /* &::after {
-          height: 100%;
-          content: "";
-          border-right-width: 1px;
-          border-right-style: solid;
-          border-right-color: var(--theme-systemQuartenary);
-        } */
       }
     }
   }
